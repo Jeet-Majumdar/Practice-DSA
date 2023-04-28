@@ -37,6 +37,7 @@ class LinkedList:
             address_of_top = self.top.address
             self.top = address_of_top
             self.size = self.size - 1
+            del current_top
             return current_top_data
     
     def print_list(self):
