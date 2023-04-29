@@ -6,7 +6,7 @@ class Node:
     def set_address(self, address):
         self.address = address
     
-    def get_address(self, address):
+    def get_address(self):
         return self.address
 
 class LinkedList:

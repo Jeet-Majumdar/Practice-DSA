@@ -1,6 +1,9 @@
 '''
-Depth first search uses stack to keep track of the nodes to be visited.
+Breadth first search uses Queue to keep track of the nodes to be visited.
 '''
+
+from queue import Queue 
+
 class Graph:
     def __init__(self, nNodes, directed=False):
         self.nNodes = nNodes
@@ -27,15 +30,14 @@ class Graph:
             print('Entered node numbers is/are not a part of the Graph :(')
             return 0
         
-        # Do a depth-first search using stack list
-
-        stack = [from_node_number]
+        # Do a breadth-first search using queue list
+        queue = Queue()
+        queue.enqueue(from_node_number)
         predecessors = []
         visited_nodes = []
         found = False
-        while (len(stack)!=0):
-            pop_value = stack.pop()
-            
+        while (queue.list_size()!=0):
+            pop_value = int(queue.dequeue())
             if pop_value == to_node_number:
                 visited_nodes.append(pop_value)
                 print(f'\n\nFound! Printing the path... \n')
@@ -44,8 +46,8 @@ class Graph:
             else:
                 for edge in self.edge_list:
                     if pop_value == edge[0]:
-                        if edge[1] not in visited_nodes and edge[1] not in stack:
-                            stack.append(edge[1])
+                        if edge[1] not in visited_nodes and queue.search(edge[1])==False:
+                            queue.enqueue(edge[1])
                             predecessors.append((pop_value, edge[1]))
                 visited_nodes.append(pop_value)
 
@@ -82,6 +84,8 @@ class Graph:
         else:
             print('Not found')
 
+        
+
 
 
 if __name__=='__main__':
@@ -96,6 +100,7 @@ if __name__=='__main__':
     graph.add_edge(6, 9, 1)
     graph.add_edge(7, 8, 1)
     graph.add_edge(8, 9, 1)
+    
 
     graph.get_edge_list()
 
