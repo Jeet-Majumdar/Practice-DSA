@@ -1,5 +1,15 @@
 '''
 Breadth first search uses Queue to keep track of the nodes to be visited.
+
+Breadth-First Search (BFS) Algorithm:
+
+1. Choose a starting vertex, mark it as visited, and add it to a queue (Enqueue operation).
+2. While the queue is not empty:
+    Dequeue a vertex from the queue and check whether it is the search variable.
+    If it is, stop the code and display the predecessor list, else, Enqueue all its adjacent vertices \
+    that have not been visited, as well as including them in a predecessor list and a visited list.
+3. Repeat step 2 until the queue is empty.
+
 '''
 
 from queue import Queue 

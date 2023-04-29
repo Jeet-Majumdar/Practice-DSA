@@ -1,5 +1,13 @@
 '''
 Depth first search uses stack to keep track of the nodes to be visited.
+
+Depth first search (DFS) algorithms:
+1. Start by pushing starting vertex of the graph into the stack
+2. Pop the top item of the stack and add it to the visited list
+3. Check whether the popped item is the search item. If it is stop. Else proceed to next step
+4. Add the non-visited neighbours of the popped item and add them in the stack. Add the neighbour along with the popped item to a predecessor list too. This will be helpful to keep track of the search path
+5. Keep repeating steps 2 to 5 until the stack is empty
+
 '''
 class Graph:
     def __init__(self, nNodes, directed=False):
