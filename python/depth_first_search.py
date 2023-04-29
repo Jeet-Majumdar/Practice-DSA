@@ -36,20 +36,40 @@ class Graph:
             
             if pop_value == to_node_number:
                 visited_nodes.append(pop_value)
-                print(f'\n\nFound! Printing the path... ', end='  ')
+                print(f'\n\nFound! Printing the path... \n')
                 found = True
                 break
             else:
                 count = 0
                 for edge in self.edge_list:
                     if pop_value == edge[0]:
-                        if edge[1] not in visited_nodes:
+                        if edge[1] not in visited_nodes and edge[1] not in stack:
                             stack.append(edge[1])
                             predecessors.append((pop_value, edge[1]))
                 visited_nodes.append(pop_value)
 
         if(found==True):
-            print(visited_nodes)
+            
+            # from predecessors list, analyze the jumps that that make it continuous, and print the path
+            
+            len_predecessors = len(predecessors)
+            to_node = predecessors[-1][1]
+            from_node = predecessors[-1][0]
+            path = f'{to_node}'
+            index = len_predecessors - 2
+            while index >= 0:
+                if from_node == from_node_number:
+                    path = f'{from_node} --> {path}'
+                    break
+                if predecessors[index][1] == from_node:
+                    path = f'{predecessors[index][1]} --> {path}'
+                    from_node = predecessors[index][0]
+                    to_node = predecessors[index][1]
+                
+                index = index - 1
+            
+            print(f'Path:\n     {path}')
+            print()
 
 
 
