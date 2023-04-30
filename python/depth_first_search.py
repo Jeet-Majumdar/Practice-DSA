@@ -1,5 +1,6 @@
 '''
 Depth first search uses stack to keep track of the nodes to be visited.
+DFS is better when target is far from source
 
 Depth first search (DFS) algorithms:
 1. Start by pushing starting vertex of the graph into the stack

@@ -1,5 +1,6 @@
 '''
 Breadth first search uses Queue to keep track of the nodes to be visited.
+BFS is better when target is closer to Source
 
 Breadth-First Search (BFS) Algorithm:
 
