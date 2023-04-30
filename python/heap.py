@@ -33,7 +33,7 @@ class MaxHeap:
             self.heap[i], self.heap[self.parent(i)] = self.heap[self.parent(i)], self.heap[i]
             i = self.parent(i)
     
-    def delete(self):
+    def remove(self):
         max_val = self.heap[0]
         self.heap[0] = self.heap[-1]
         self.heap.pop()
@@ -83,7 +83,7 @@ class MinHeap:
                 self.heap[self.parent(i)] = temp
                 i = self.parent(i)
     
-    def delete(self):
+    def remove(self):
         '''
         1. Save the data that is at our root node
         2. Replace the root node with the right most node, on the last level of our tree. 
@@ -126,7 +126,7 @@ if __name__ == '__main__':
     heap.insert(2)
     heap.insert(1)
     print(heap.heap) 
-    print(heap.delete())  
+    print(heap.remove())  
     print(heap.heap) 
 
     print('\n\nTesting MinHeap')
@@ -138,5 +138,5 @@ if __name__ == '__main__':
     heap.insert(2)
     heap.insert(1)
     print(heap.heap) 
-    print(heap.delete())  
+    print(heap.remove())  
     print(heap.heap) 
