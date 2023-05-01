@@ -11,6 +11,16 @@ Breadth-First Search (BFS) Algorithm:
     that have not been visited, as well as including them in a predecessor list and a visited list.
 3. Repeat step 2 until the queue is empty.
 
+Concise algo:
+Queue: [A]  # first entry is the starting point
+
+Dequeue
+Is this is goal?
+If so, we are done. 
+Otherwise:
+    Enqueue undiscovered neighbours
+    update predecessors 
+Repeat until queue is empty
 '''
 
 from queue import Queue 

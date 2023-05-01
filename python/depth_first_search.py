@@ -9,6 +9,16 @@ Depth first search (DFS) algorithms:
 4. Add the non-visited neighbours of the popped item and add them in the stack. Add the neighbour along with the popped item to a predecessor list too. This will be helpful to keep track of the search path
 5. Keep repeating steps 2 to 5 until the stack is empty
 
+Concise algo:
+Stack: [A] # first entry is the starting point
+
+Pop
+Is this is goal?
+If so, we are done. 
+Otherwise:
+    push undiscovered neighbours
+    update predecessors 
+Repeat until stack is empty
 '''
 class Graph:
     def __init__(self, nNodes, directed=False):
