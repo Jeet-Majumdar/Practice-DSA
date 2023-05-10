@@ -3,14 +3,14 @@ Binary Tree Heap representation in an array:
 
 Implementations:
 For programming language where array index CANNOT be 0:
-    Parent of a Node = floor(n/2) = n//2
-    If Root = n 
+    Parent of a Node at n = floor(n/2) = n//2
+    If Parent (root) = n 
     Left = 2*n
     Right = 2*n + 1
 
 For programming language where array index can be 0:
-    Parent of a Node = floor(n-1/2) = (n-1)//2
-    If Root = n 
+    Parent of a Node at n = floor((n-1)/2) = (n-1)//2
+    If Parent (root) = n 
     Left = 2*n + 1
     Right = 2*n + 2
 
