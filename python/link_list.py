@@ -103,6 +103,47 @@ class LinkedList:
             i = i - 1
         # print sorted linklist
         self.print_list()
+    
+    def merge_sort_link_list(self, top):
+        if not top or top.address == None:
+            return None
+        
+        # split the list into two halfs
+        left = self.top
+        right = self.getMid(self.top)
+        tmp = right.address
+        right.address = None
+        right = tmp
+
+        left = self.merge_sort_link_list(left)
+        right = self.merge_sort_link_list(right)
+        return self.merge_list(left, right)
+    
+    def getMid(self, top):
+        slow, fast = top, top.address
+        while fast and fast.address:
+            slow = slow.address
+            fast = fast.address.address
+        return slow
+    
+    def merge_list(self, list1, list2):
+        newlist = LinkedList()
+        top1 = list1.top
+        top2 = list2.top
+        while top1 and top2:
+            if top1.val < top2.val:
+                newlist.push(top1.val)
+                top1 = top1.address
+            else:
+                newlist.push(top2.val)
+                top2 = top2.address
+        while top1:
+            newlist.push(top1.val)
+            top1 = top1.address
+        while top2:
+            newlist.push(top2.val)
+            top2 = top2.address
+        return newlist
 
 if __name__ == '__main__':
 
