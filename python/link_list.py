@@ -45,15 +45,64 @@ class LinkedList:
             print('No node in list. Nothing to print!')
             return -9999999
         top = self.top
+        print()
         while(top != None):
-            print(top.data)
+            print(f'{top.data}', end=' ')
             top = top.address
+        print()
     
     def get_top(self):
         if self.size == 0:
             print('Error: No node in list')
         else:
             print(f'Top data = {self.top.data}')
+    
+
+    def bubble_sort_link_list_by_data(self):
+        if self.size == 0:
+            print('Error: No node in list')
+
+        # Sort using bubble sort with data replacement
+        i = self.top
+        while i.address != None:
+            j = self.top
+            while j.address != None:
+                if j.data > j.address.data:
+                    value = j.data
+                    j.data = j.address.data
+                    j.address.data = value
+                j = j.address
+            i = i.address
+        # print sorted linklist
+        self.print_list()
+    
+    def bubble_sort_link_list_by_link(self):
+        if self.size == 0:
+            print('Error: No node in list')
+
+        # Sort using bubble sort with link replacement
+        i = self.size
+        while i != 0:
+            j = self.top
+            previousNode = None
+            while j.address != None:
+                if j.data > j.address.data:
+                    if j == self.top:
+                        self.top = j.address
+                        previousNode = None
+                    else:
+                        previousNode.address = j.address
+                    store_second_address = j.address 
+                    j.address = store_second_address.address 
+                    store_second_address.address = j
+                    j = store_second_address
+                else:
+                    previousNode = j
+                    j = j.address
+            
+            i = i - 1
+        # print sorted linklist
+        self.print_list()
 
 if __name__ == '__main__':
 
@@ -61,7 +110,7 @@ if __name__ == '__main__':
 
     while(True):
         print('------------------')
-        print('Options:\n1. Push item \n2. Pop item \n3. Show list \n4. Get top data')
+        print('Options:\n1. Push item \n2. Pop item \n3. Show list \n4. Get top data\n5. Sort list')
         print('------------------')
         user_in = int(input('Enter option: '))
         if user_in == 1:
@@ -77,6 +126,8 @@ if __name__ == '__main__':
             list.print_list()
         elif user_in == 4:
             list.get_top()
+        elif user_in == 5:
+            list.bubble_sort_link_list_by_link()
         else:
             print('Error: Enter a valid integer!')
 
