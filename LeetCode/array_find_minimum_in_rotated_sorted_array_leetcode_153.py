@@ -28,6 +28,8 @@ Output: 11
 Explanation: The original array was [11,13,15,17] and it was rotated 4 times. 
 """
 
+from typing import List, Type
+
 class Solution:
     def findMin(self, nums: List[int]) -> int:
         l = 0
