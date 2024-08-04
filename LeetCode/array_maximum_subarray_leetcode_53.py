@@ -27,3 +27,17 @@ Constraints:
 1 <= nums.length <= 105
 -104 <= nums[i] <= 104
 """
+
+from typing import List, Type
+
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
+        # Kadane's algorithm
+        max_current = max_global = nums[0]
+        for i in range(1, len(nums)):
+            max_current = max(nums[i], max_current + nums[i])
+            if max_current > max_global:
+                max_global = max_current
+        return max_global
+
+            
