@@ -26,6 +26,8 @@ Constraints:
 0 <= prices[i] <= 104
 """
 
+from typing import List, Type
+
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         buy = prices[0]
