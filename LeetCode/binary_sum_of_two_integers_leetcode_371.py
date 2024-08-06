@@ -8,8 +8,6 @@ class Solution:
         bitShortner = 0xffffffff
 
         while (b & bitShortner) > 0:
-            carry = (a & b) << 1
-            a = (a ^ b)
-            b = carry
+            a, b = (a ^ b), (a & b) << 1
         
         return (a & bitShortner) if b > 0 else a
