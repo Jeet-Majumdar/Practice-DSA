@@ -5,9 +5,9 @@ class Solution:
 
         # Constraints: -1000 <= a, b <= 1000
 
-        bitShortner = 0xffffffff
+        mask = 0xffffffff # binary of int -1
 
-        while (b & bitShortner) > 0:
+        while (b & mask) > 0:
             a, b = (a ^ b), (a & b) << 1
         
-        return (a & bitShortner) if b > 0 else a
+        return (a & mask) if b > 0 else a
