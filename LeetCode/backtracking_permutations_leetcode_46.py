@@ -34,7 +34,7 @@ class Solution:
 
         # base case
         if len(nums) == 1:
-            return [nums[:]]
+            return [nums.copy()]
         
         for i in range(len(nums)):
             n = nums.pop(0)
