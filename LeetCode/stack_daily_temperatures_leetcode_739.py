@@ -28,6 +28,7 @@ from typing import List
 class Solution:
     def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
         # https://www.youtube.com/watch?v=_ZEvmycwXHs
+        # Monotonous Stack (Min)
         # Time Complexity: O(n)
         # Space Complexity: O(n)
         
