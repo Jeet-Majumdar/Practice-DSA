@@ -23,7 +23,43 @@ Constraints:
 30 <= temperatures[i] <= 100
 """
 
+from typing import List
 
+class Solution:
+    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+        # https://www.youtube.com/watch?v=_ZEvmycwXHs
+        # Time Complexity: O(n)
+        # Space Complexity: O(n)
+        
+        res = [0 for i in temperatures]
+        stack = []
+        for idx, val in enumerate(temperatures):
+            while len(stack) and stack[-1][1] < val:
+                stack_idx, stack_val = stack.pop()
+                diff = idx - stack_idx
+                res[stack_idx] = diff
+            stack.append((idx, val))
+        return res
+
+"""
+## My original solution: Takes a little extra time for 2-3 more lines so fails submission time
+class Solution:
+    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+        # https://www.youtube.com/watch?v=_ZEvmycwXHs
+        res = [0 for i in temperatures]
+        stack = []
+        for idx, val in enumerate(temperatures):
+            while len(stack) != 0:
+                stack_idx, stack_val = stack[-1]
+                if stack_val > val:
+                    break
+                if stack_val < val:
+                    diff = idx - stack_idx
+                    res[stack_idx] = diff
+                    stack.pop()
+            stack.append((idx, val))
+        return res
+"""
 
 """
 ## Lousy Brute force solution: (NOT TIME OPTIMIZED)
