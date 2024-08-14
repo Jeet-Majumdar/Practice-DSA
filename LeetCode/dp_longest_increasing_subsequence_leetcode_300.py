@@ -33,6 +33,16 @@ from typing import List
 
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
+        # https://www.youtube.com/watch?v=0wT67DOzqBg
+        # O(n log n)
+        
+        for i in nums:
+            for j in 
+
+
+"""
+class Solution:
+    def lengthOfLIS(self, nums: List[int]) -> int:
         # https://www.youtube.com/watch?v=cjWnW0hdF1Y
         # O(n^2)
         lis = [1] * len(nums)
@@ -42,3 +52,4 @@ class Solution:
                 if nums[j] > nums[i]:
                     lis[i] = max(lis[i], 1 + lis[j])
         return max(lis)
+"""
