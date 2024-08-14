@@ -35,6 +35,7 @@ class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
         # https://www.youtube.com/watch?v=0wT67DOzqBg
         # https://www.youtube.com/watch?v=22s1xxRvy28
+        # Patience sorting
         # O(n log n)
         
         def binary_search(arr, val, start, end):
