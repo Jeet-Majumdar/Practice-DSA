@@ -34,10 +34,27 @@ from typing import List
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
         # https://www.youtube.com/watch?v=0wT67DOzqBg
+        # https://www.youtube.com/watch?v=22s1xxRvy28
         # O(n log n)
         
-        for i in nums:
-            for j in 
+        def binary_search(arr, val, start, end):
+            if start == end:
+                if arr[start] > val:
+                    return start
+                else:
+                    return start+1
+        
+            if start > end:
+                return start
+        
+            mid = (start+end)/2
+            if arr[mid] < val:
+                return binary_search(arr, val, mid+1, end)
+            elif arr[mid] > val:
+                return binary_search(arr, val, start, mid-1)
+            else:
+                return mid
+
 
 
 """
