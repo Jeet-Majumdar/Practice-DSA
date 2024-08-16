@@ -32,31 +32,48 @@ Follow up: Can you come up with an algorithm that runs in O(n log(n)) time compl
 from typing import List
 
 class Solution:
+    def findClosestBinarySearch(self, data, val):
+        highIndex = len(data)-1
+        lowIndex = 0
+        while highIndex > lowIndex:
+                index = (highIndex + lowIndex) // 2
+                sub = data[index]
+                if data[lowIndex] == val:
+                        return [lowIndex, lowIndex]
+                elif sub == val:
+                        return [index, index]
+                elif data[highIndex] == val:
+                        return [highIndex, highIndex]
+                elif sub > val:
+                        if highIndex == index:
+                                return sorted([highIndex, lowIndex])
+                        highIndex = index
+                else:
+                        if lowIndex == index:
+                                return sorted([highIndex, lowIndex])
+                        lowIndex = index
+        return sorted([highIndex, lowIndex])
+            
+            
     def lengthOfLIS(self, nums: List[int]) -> int:
         # https://www.youtube.com/watch?v=0wT67DOzqBg
         # https://www.youtube.com/watch?v=22s1xxRvy28
         # Patience sorting
+        # https://www.youtube.com/watch?v=XhzQHpGcQg4
+        # https://www.youtube.com/watch?v=TocJOW6vx_I
         # O(n log n)
         
-        def binary_search(arr, val, start, end):
-            if start == end:
-                if arr[start] > val:
-                    return start
-                else:
-                    return start+1
-        
-            if start > end:
-                return start
-        
-            mid = (start+end)/2
-            if arr[mid] < val:
-                return binary_search(arr, val, mid+1, end)
-            elif arr[mid] > val:
-                return binary_search(arr, val, start, mid-1)
+        res = 1
+        dp = [nums[0]]
+        for i in range(1, len(nums)):
+            if nums[i] > dp[-1]:
+                dp.append(nums[i])
             else:
-                return mid
-
-
+                replace_idx = self.findClosestBinarySearch(dp, nums[i])[1]
+                dp[replace_idx] = nums[i]
+            res = len(dp)
+        
+        return res
 
 """
 class Solution:
