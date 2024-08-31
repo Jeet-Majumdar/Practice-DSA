@@ -43,6 +43,24 @@ class ListNode:
 
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
+        # Space: O(1) solution. Using Floyd's Tortoise and Hare Algorithm
+        slow = head
+        fast = head
+        while slow != None and fast != None:
+            try:
+                slow = slow.next
+                fast = fast.next.next
+            except:
+                return False
+            if slow is not None and fast is not None:
+                if slow == fast:
+                    return True
+        return False
+
+
+"""
+class Solution:
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
         s = set()
         while head:
             if head in s:
@@ -50,3 +68,4 @@ class Solution:
             s.add(head)
             head = head.next
         return False
+"""
