@@ -45,6 +45,7 @@ class Solution:
     def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int, k: int) -> int:
         # Bellman-Ford Algo
         # Ref Video: https://www.youtube.com/watch?v=5eIK3zUdYmE
+        # Time: O(E * k)
          
         prices = [float("inf")] * n
         prices[src] = 0
