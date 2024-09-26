@@ -38,23 +38,20 @@ class Solution:
         # map each index to pair (count[0], count[1])
         # Use diff between counts for O(1) lookup of what we need
         
-        zero, one = 0, 0
+        count = 0
         res = 0
         diff_index = {} # diff --> index   [diff=count[1]-count[0]]
-        
+        diff_index[0] = -1
+
         for i, n in enumerate(nums):
-            if n == 0:
-                zero += 1
+            if n == 1:
+                count += 1
             else:
-                one += 1
+                count -= 1
         
-            if one - zero not in diff_index:
-                diff_index[one - zero] = i
-            
-            if one == zero:
-                res = one + zero # This is definitely the longest subarray at this point
+            if count not in diff_index:
+                diff_index[count] = i
             else:
-                idx = diff_index[one - zero]
-                res = max(res, i - idx)
+                res = max(res, i -  diff_index[count])
         
         return res
