@@ -25,7 +25,7 @@ from typing import List
 
 class Solution:
     def findMaxLength(self, nums: List[int]) -> int:
-        # Ref Video: https://www.youtube.com/watch?v=agB1LyObUNE
+        # Ref Video: https://www.youtube.com/watch?v=Xkl4EknqW8Y
         # 111 000
         # How to know to shrink window or increase?
         # Have to split, thus recursive and worse than O(n^2)
