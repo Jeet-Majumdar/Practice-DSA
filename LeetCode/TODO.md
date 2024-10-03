@@ -5,3 +5,4 @@
 4. https://leetcode.com/problems/path-with-minimum-effort/description/
 5. https://leetcode.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/description/
 6. https://leetcode.com/problems/target-sum/description/
+7. https://leetcode.com/problems/minimum-cost-for-tickets/description/
